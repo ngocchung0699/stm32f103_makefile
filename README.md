@@ -3,12 +3,16 @@ Biên dịch và Debug cho stm32 trên visual studio code
 
 Cài đặt các công cụ cần thiết:
 1. Msys2
+
 tải và cài đặt theo hướng dẫn tại: https://www.msys2.org/
+
 chạy các lệnh sau:
     pacman -Sy pacman
     pacman -Syu
+
 mở lại Msys2, chạy tiếp
     pacman -S make tar unzip mingw-w64-x86_64-toolchain mingw-w64-x86_64-make mingw-w64-x86_64-boost
+
 Add path:
     C:\msys64\usr\bin
     C:\msys64\mingw64\bin
