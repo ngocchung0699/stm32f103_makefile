@@ -29,6 +29,7 @@ copy thư mục ST-link vào : C:\Program Files
 Add Path: C:\Program Files\ST-link\bin
 
 Thử nghiệm
+
 TH1: không dùng pyocd.yaml
 
 xoá file: pyocd.yaml, Drivers\Arm\Keil.STM32F1xx_DFP.2.4.1.pack
