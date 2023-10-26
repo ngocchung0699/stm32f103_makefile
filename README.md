@@ -41,6 +41,7 @@ TH1: không dùng pyocd.yaml
 4. biên dịch chương trình:     make
 5. nạp chương trình:           make flash
 6. Để debug: vào "Run and Debug"
+
 TH2: Dùng pyocd.yaml
 
 1. Trong makefile:
