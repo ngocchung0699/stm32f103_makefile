@@ -32,30 +32,23 @@ Thử nghiệm
 
 TH1: không dùng pyocd.yaml
 
-xoá file: pyocd.yaml, Drivers\Arm\Keil.STM32F1xx_DFP.2.4.1.pack
-
-Trong makefile:
+1.xoá file: pyocd.yaml, Drivers\Arm\Keil.STM32F1xx_DFP.2.4.1.pack
+2.Trong makefile:
     bỏ command: St-flash
     đánh command: pyocd-flash
-
-Trong ".vscode/launch.json:
+3.Trong ".vscode/launch.json:
     gán biến "servertype": "stutil"
-biên dịch chương trình:     make
-nạp chương trình:           make flash
-
-Để debug: vào "Run and Debug"
-
+4.biên dịch chương trình:     make
+5.nạp chương trình:           make flash
+6.Để debug: vào "Run and Debug"
 TH2: Dùng pyocd.yaml
 
-Trong makefile:
+1.Trong makefile:
     đánh command: St-flash
     bỏ command: pyocd-flash
-
-Trong ".vscode/launch.json:
+2.Trong ".vscode/launch.json:
     gán biến "servertype": "pyocd"
-
-biên dịch chương trình:     make
-nạp chương trình:           make flash
-
-Để debug: vào "Run and Debug"
+3.biên dịch chương trình:     make
+4.nạp chương trình:           make flash
+5.Để debug: vào "Run and Debug"
 
