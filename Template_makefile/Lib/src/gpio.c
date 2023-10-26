@@ -155,7 +155,6 @@ void GPIO_Write_Pin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, uint8_t Status)
     /* Check the parameters */
     assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
     assert_param(IS_GET_GPIO_PIN(GPIO_Pin));
-    assert_param(IS_GPIO_BIT_ACTION(BitVal));
 
     if (Status != Bit_RESET)
     {

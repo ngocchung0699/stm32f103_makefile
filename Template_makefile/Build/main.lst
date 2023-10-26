@@ -1,0 +1,124 @@
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccFaCeak.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	tim
+  18              		.section	.bss.tim,"aw",%nobits
+  19              		.align	3
+  22              	tim:
+  23 0000 00000000 		.space	8
+  23      00000000 
+  24              		.section	.text.main,"ax",%progbits
+  25              		.align	1
+  26              		.global	main
+  27              		.syntax unified
+  28              		.thumb
+  29              		.thumb_func
+  31              	main:
+  32              	.LFB65:
+  33              		.file 1 "User/main.c"
+   1:User/main.c   **** #include "main.h"
+   2:User/main.c   **** #include "systick.h"
+   3:User/main.c   **** #include "gpio.h"
+   4:User/main.c   **** 
+   5:User/main.c   **** uint64_t tim;
+   6:User/main.c   **** 
+   7:User/main.c   **** int main(void)
+   8:User/main.c   **** {
+  34              		.loc 1 8 1
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38 0000 80B5     		push	{r7, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 00AF     		add	r7, sp, #0
+  44              	.LCFI1:
+  45              		.cfi_def_cfa_register 7
+   9:User/main.c   **** 	SystemInit();
+  46              		.loc 1 9 2
+  47 0004 FFF7FEFF 		bl	SystemInit
+  10:User/main.c   **** 	SysTick_Init();
+  48              		.loc 1 10 2
+  49 0008 FFF7FEFF 		bl	SysTick_Init
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccFaCeak.s 			page 2
+
+
+  11:User/main.c   **** 	GPIO_Config(GPIOC, GPIO_Mode_Out_PP, GPIO_Pin_13);
+  50              		.loc 1 11 2
+  51 000c 4FF40052 		mov	r2, #8192
+  52 0010 1021     		movs	r1, #16
+  53 0012 0A48     		ldr	r0, .L3
+  54 0014 FFF7FEFF 		bl	GPIO_Config
+  55              	.L2:
+  12:User/main.c   **** 
+  13:User/main.c   **** 	while (1)
+  14:User/main.c   **** 	{
+  15:User/main.c   **** 		GPIO_Enable(GPIOC, GPIO_Pin_13);
+  56              		.loc 1 15 3 discriminator 1
+  57 0018 4FF40051 		mov	r1, #8192
+  58 001c 0748     		ldr	r0, .L3
+  59 001e FFF7FEFF 		bl	GPIO_Enable
+  16:User/main.c   **** 		Delay_ms(100);
+  60              		.loc 1 16 3 discriminator 1
+  61 0022 6420     		movs	r0, #100
+  62 0024 FFF7FEFF 		bl	Delay_ms
+  17:User/main.c   **** 		GPIO_Disable(GPIOC, GPIO_Pin_13);
+  63              		.loc 1 17 3 discriminator 1
+  64 0028 4FF40051 		mov	r1, #8192
+  65 002c 0348     		ldr	r0, .L3
+  66 002e FFF7FEFF 		bl	GPIO_Disable
+  18:User/main.c   **** 		Delay_ms(100);
+  67              		.loc 1 18 3 discriminator 1
+  68 0032 6420     		movs	r0, #100
+  69 0034 FFF7FEFF 		bl	Delay_ms
+  15:User/main.c   **** 		Delay_ms(100);
+  70              		.loc 1 15 3 discriminator 1
+  71 0038 EEE7     		b	.L2
+  72              	.L4:
+  73 003a 00BF     		.align	2
+  74              	.L3:
+  75 003c 00100140 		.word	1073811456
+  76              		.cfi_endproc
+  77              	.LFE65:
+  79              		.text
+  80              	.Letext0:
+  81              		.file 2 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+  82              		.file 3 "c:\\program files (x86)\\gnu arm embedded toolchain\\10 2021.10\\arm-none-eabi\\include\\
+  83              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f10x.h"
+  84              		.file 5 "Drivers/STM32F10x_StdPeriph_Driver/inc/stm32f10x_gpio.h"
+ARM GAS  C:\Users\Admin\AppData\Local\Temp\ccFaCeak.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\Admin\AppData\Local\Temp\ccFaCeak.s:22     .bss.tim:00000000 tim
+C:\Users\Admin\AppData\Local\Temp\ccFaCeak.s:19     .bss.tim:00000000 $d
+C:\Users\Admin\AppData\Local\Temp\ccFaCeak.s:25     .text.main:00000000 $t
+C:\Users\Admin\AppData\Local\Temp\ccFaCeak.s:31     .text.main:00000000 main
+C:\Users\Admin\AppData\Local\Temp\ccFaCeak.s:75     .text.main:0000003c $d
+
+UNDEFINED SYMBOLS
+SystemInit
+SysTick_Init
+GPIO_Config
+GPIO_Enable
+Delay_ms
+GPIO_Disable

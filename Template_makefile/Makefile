@@ -104,6 +104,7 @@ CPU = -mcpu=cortex-m3
 
 # float-abi
 
+
 # mcu
 MCU = $(CPU) -mthumb $(FPU) $(FLOAT-ABI)
 
@@ -115,6 +116,7 @@ AS_DEFS =
 C_DEFS =  \
 -DSTM32F10X_MD \
 -DUSE_STDPERIPH_DRIVER
+
 
 # AS includes
 AS_INCLUDES = 
@@ -152,7 +154,7 @@ LDFLAGS = $(MCU) -specs=nano.specs -T$(LDSCRIPT) $(LIBDIR) $(LIBS) -Wl,-Map=$(BU
 
 # default action: build all
 all:	$(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex $(BUILD_DIR)/$(TARGET).bin
-	-rm -rf $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d $(BUILD_DIR)/*.lst $(BUILD_DIR)/*.elf $(BUILD_DIR)/*.map
+	# -rm -rf $(BUILD_DIR)/*.o $(BUILD_DIR)/*.d $(BUILD_DIR)/*.lst $(BUILD_DIR)/*.elf $(BUILD_DIR)/*.map
 
 #######################################
 # build the application
@@ -186,9 +188,16 @@ $(BUILD_DIR):
 
 #######################################
 # st-flash : reset after flashing
-#######################################		
+#######################################	
 flash: 
 	st-flash --reset write $(BUILD_DIR)/$(TARGET).bin 0x08000000  
+
+#######################################
+# pyocd-flash : reset after flashing
+#######################################		
+# flash: 
+# 	pyocd reset -l -t 'stm32f103c8' -O reset_type=hw -O connect_mode='under-reset'
+# 	pyocd flash -e sector -a 0x8000000 -t 'stm32f103c8' $(BUILD_DIR)/$(TARGET).hex
 
 #######################################
 # clean up
