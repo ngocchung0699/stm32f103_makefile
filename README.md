@@ -1,4 +1,4 @@
-hướng dẫn biên dịch và debug cho stm32 trên visual studio code
+Biên dịch và Debug cho stm32 trên visual studio code
 
 Cài đặt các công cụ cần thiết:
 1. Msys2
