@@ -26,7 +26,7 @@ TARGET = template_make
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -O0
+OPT = -O1
 
 
 #######################################
@@ -42,33 +42,32 @@ BUILD_DIR = Build
 C_SOURCES =  \
 User/main.c \
 User/stm32f10x_it.c \
-User/system_stm32f10x.c  \
-Lib/src/systick.c \
-Lib/src/gpio.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/misc.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_can.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_cec.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_crc.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dac.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dbgmcu.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_fsmc.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_i2c.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_iwdg.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_rtc.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_sdio.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.c \
-Drivers/STM32F10x_StdPeriph_Driver/src/stm32f10x_wwdg.c 
-
+Lib/src/nc_systick.c \
+Lib/src/nc_gpio.c \
+Drivers/CMSIS/Device/system_stm32f10x.c \
+Drivers/SPL/src/misc.c \
+Drivers/SPL/src/stm32f10x_adc.c \
+Drivers/SPL/src/stm32f10x_bkp.c \
+Drivers/SPL/src/stm32f10x_can.c \
+Drivers/SPL/src/stm32f10x_cec.c \
+Drivers/SPL/src/stm32f10x_crc.c \
+Drivers/SPL/src/stm32f10x_dac.c \
+Drivers/SPL/src/stm32f10x_dbgmcu.c \
+Drivers/SPL/src/stm32f10x_dma.c \
+Drivers/SPL/src/stm32f10x_exti.c \
+Drivers/SPL/src/stm32f10x_flash.c \
+Drivers/SPL/src/stm32f10x_fsmc.c \
+Drivers/SPL/src/stm32f10x_gpio.c \
+Drivers/SPL/src/stm32f10x_i2c.c \
+Drivers/SPL/src/stm32f10x_iwdg.c \
+Drivers/SPL/src/stm32f10x_pwr.c \
+Drivers/SPL/src/stm32f10x_rcc.c \
+Drivers/SPL/src/stm32f10x_rtc.c \
+Drivers/SPL/src/stm32f10x_sdio.c \
+Drivers/SPL/src/stm32f10x_spi.c \
+Drivers/SPL/src/stm32f10x_tim.c \
+Drivers/SPL/src/stm32f10x_usart.c \
+Drivers/SPL/src/stm32f10x_wwdg.c 
 
 # ASM sources
 ASM_SOURCES =  \
@@ -115,7 +114,7 @@ AS_DEFS =
 # C defines
 C_DEFS =  \
 -DSTM32F10X_MD \
--DUSE_STDPERIPH_DRIVER
+-DUSE_STDPERIPH_DRIVER 
 
 
 # AS includes
@@ -125,8 +124,8 @@ AS_INCLUDES =
 C_INCLUDES =  \
 -IUser \
 -ILib/inc \
--IDrivers/STM32F10x_StdPeriph_Driver/inc \
--IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
+-IDrivers/SPL/inc \
+-IDrivers/CMSIS/Device \
 -IDrivers/CMSIS/Include
 
 # compile gcc flags
